@@ -1,29 +1,29 @@
-# p5.js PNG Export Sketch
+# P5.js: PNG Export
 
-Dieses Projekt zeigt, wie man mit **p5.js** eine einfache Zeichnung erstellt und diese als **PNG-Datei** exportiert.  
-Das Sketch zeichnet einen Kreis in der Mitte des Canvas und ermöglicht es, das Bild durch Drücken der Taste **"s"** zu speichern.  
+[Deutsch](README_DE.md)
 
-## Features
+Draws a circle on a canvas and saves the current frame as a PNG file when
+you press **s**. A minimal starting point for exporting images from a
+sketch, e.g. for print or documentation.
 
-- Einen Kreis im Zentrum zeichnen
-- Export der aktuellen Zeichnung als `.png`-Datei
-- Automatischer Dateiname: Zeitstempel + `-out.png`
+## Installation
 
-## Voraussetzungen
+1. Open the folder in Visual Studio Code and start Live Server (click
+   **Go Live** in the status bar).
+2. Press **s** to download the current frame as `<timestamp>-out.png`.
 
-- Browser mit Unterstützung für p5.js
+Libraries (in `libraries/`): p5.js 1.10.0, p5.sound 1.0.1 (included, not used).
 
-## Verwendung
+License: MIT
 
-- Öffne die HTML-Seite im Browser.
-- Ein Kreis wird im Zentrum des Canvas angezeigt.
-- Drücke die Taste **"s"**, um die aktuelle Zeichnung als png-Datei herunterzuladen.
+## Coding Help
 
-## Beispiel-Animation
-
-- ⚪ Ein einzelner Kreis in der Mitte des Canvas
-- png-Datei lässt sich in Vektorprogrammen wie Inkscape oder Illustrator öffnen und bearbeiten
-
-## Lizenz
-
-MIT License
+- **`sketch.js` → `setup()`**: creates a 500×500 canvas. The saved PNG
+  uses the screen's pixel density, so on a Retina display it is 1000×1000
+  pixels. Add `pixelDensity(1)` for exactly 500×500, or a higher value for
+  a larger file.
+- **`draw()`**: draws the background and the circle. Replace this part
+  with your own drawing.
+- **`keyPressed()`**: on **s**, `save()` downloads the canvas. The file
+  name is built from `Date.now()`, so every file gets a unique name. Add
+  more `case`s for other keys.
